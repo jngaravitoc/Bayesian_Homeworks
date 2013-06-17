@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Template for a LaTex article in English.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+% AMS packages:
+\usepackage{amsmath, amsthm, amsfonts}
+
+% Theorems
+%-----------------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+
+% Shortcuts.
+% One can define new commands to shorten frequently used
+% constructions. As an example, this defines the R and Z used
+% for the real and integer numbers.
+%-----------------------------------------------------------------
+\def\RR{\mathbb{R}}
+\def\ZZ{\mathbb{Z}}
+
+% Similarly, one can define commands that take arguments. In this
+% example we define a command for the absolute value.
+% -----------------------------------------------------------------
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+
+% Operators
+% New operators must defined as such to have them typeset
+% correctly. As an example we define the Jacobian:
+% -----------------------------------------------------------------
+\DeclareMathOperator{\Jac}{Jac}
+
+%-----------------------------------------------------------------
+\title{Best Estimate $d_{0}$}
+
+\begin{document}
+\maketitle
+
+\section*{Best value Estimate}
+
+\begin{equation}
+P(d_{0}|\{d_{k}= 1, N\}) = \prod _{k = 1}^{N}\dfrac{D e^{-(d_{k}/d_{0})^{D}}}{d_{0}(k-1)!}(\dfrac{d_{k}}{d_{0}})^{D k-1}
+\end{equation}
+
+Taking the $\log$ of $P$
+
+\begin{equation}
+L =  \log(P) = \log\left( \prod _{k = 1}^{N}\dfrac{D e^{-(d_{k}/d_{0})^{D}}}{d_{0}(k-1)!}(\dfrac{d_{k}}{d_{0}})^{D k-1}\right)
+\end{equation}
+
+Taking into account that $\log (a \cdot b)$ = $\log (a) + \log(b)$.
+
+\begin{equation}
+L =  \log(P) = \sum_{k=1}^{N}\log\left(\dfrac{D e^{-\left(d_{k}/d_{0} \right)^{D}}}{d_{0}(k-1)!}(\dfrac{d_{k}}{d_{0}})^{D k-1}\right)
+\end{equation}
+
+Re ordering terms using $\mathrm{log}$ properties.
+
+\begin{equation}
+L =  \sum_{k=1}^{N} \left(  \log(D) - (\dfrac{d_{k}}{d_{0}})^{D} - \log(d_{0}) - 
+\log(k-1)! + \log(d_{k}^{Dk-1}) - \log(d_{0}^{Dk-1}) \right)
+\end{equation}
+
+Now we derive L in order to find the best estimate of $d_{0}$ 
+
+\begin{equation}
+\dfrac{\partial L}{ \partial d_{0}} = \sum_{k=1}^{N} \left[ \dfrac{Dd_{k}^{D}}{d_{0}^{D+1}} -
+\dfrac{1}{d_{0}} - \dfrac{(Dk-1)d_{0}^{Dk-2}}{d_{0}^{Dk-1}} \right] = 0
+\end{equation}
+
+\begin{equation}
+\dfrac{\partial L}{ \partial d_{0}} = \sum_{k=1}^{N} \left[ \dfrac{Dd_{k}^{D}}{d_{0}^{D+1}} -
+\dfrac{1}{d_{0}} - \dfrac{(Dk-1)}{d_{0}} \right] = 0
+\end{equation}
+
+\begin{equation}
+\dfrac{\partial L}{ \partial d_{0}} = \sum_{k=1}^{N} \left[ \dfrac{Dd_{k}^{D}}{d_{0}^{D+1}} -
+\dfrac{Dk}{d_{0}} \right] = 0
+\end{equation}
+
+\begin{equation}
+\dfrac{\partial L}{ \partial d_{0}} = \dfrac{D}{d_{0}}\sum_{k=1}^{N} \left[ \dfrac{d_{k}^{D}}{d_{0}^{D}} - {k} \right] = 0
+\end{equation}
+
+\begin{equation}
+{d_{0}^{D}} = \sum_{k=1}^{N} \dfrac{d_{k}^{D}}{k} 
+\end{equation}
+
+\begin{equation}
+d_{0} = \left( \sum_{k=1}^{N} \dfrac{d_{k}^{D}}{k} \right)^{1/D} 
+\end{equation}
+
+
+% Bibliography
+%-----------------------------------------------------------------
+%\begin{thebibliography}{99}
+
+%\bibitem{Cd94} Author, \emph{Title}, Journal/Editor, (year)
+
+%\end{thebibliography}
+
+\end{document}
