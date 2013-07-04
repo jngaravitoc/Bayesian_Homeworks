@@ -99,6 +99,25 @@ Now we derive L in order to find the best estimate of $d_{0}$
 d_{0} = \left( \sum_{k=1}^{N} \dfrac{d_{k}^{D}}{k} \right)^{1/D} 
 \end{equation}
 
+Now in order to study the errors we take the second derivative of $L$ respect to $d_{0}$ i.e:\\
+
+\begin{equation}
+\dfrac{\partial^{2} L}{\partial d_{0}^{2}} = \sum_{k=1}^{N}-\dfrac{(D + 1)Dd_{k}^{D}}{d_{0}^{D+2}} + \dfrac{Dk}{d_{0}^{2}} = 0
+\end{equation}
+
+\begin{equation}
+\dfrac{\partial^{2} L}{\partial d_{0}^{2}} = \dfrac{D}{d_0^{2}}\sum_{k=1}^{N}-\dfrac{(D + 1)d_{k}^{D}}{d_{0}^{D}} + k = \sum_{k=1}^{N} \dfrac{1}{\sigma^{2}}
+\end{equation}
+
+\begin{equation}
+\dfrac{D}{d_0^{2}}\sum_{k=1}^{N}-\dfrac{(D + 1)d_{k}^{D}}{d_{0}^{D}} + k = \dfrac{N}{\sigma^{2}}
+\end{equation}
+
+
+\begin{equation}
+\sigma = \left( \dfrac{d_{0}^{2}N}{D\sum_{k=1}^{N}\left[-\dfrac{(D + 1)d_{k}^{D}}{d_{0}^{D}} + k \right]}	\right)^{1/2}
+\end{equation}
+
 
 % Bibliography
 %-----------------------------------------------------------------
